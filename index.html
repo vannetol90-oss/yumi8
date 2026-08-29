@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>វគ្គសិក្សារបស់យើង</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Khmer OS Battambang", sans-serif;
+            background: #f5f7fb;
+            min-height: 100vh;
+            padding: 50px 30px;
+        }
+
+        /* ===== TITLE ===== */
+
+        .header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 19px;
+            color: #64748b;
+        }
+
+        .line {
+            width: 110px;
+            height: 5px;
+            margin: 18px auto;
+            border-radius: 10px;
+
+            /* NEW COLOR */
+            background: linear-gradient(
+                90deg,
+                #06b6d4,
+                #8b5cf6,
+                #f43f5e
+            );
+        }
+
+        /* ===== CARDS ===== */
+
+        .cards {
+            max-width: 1450px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            min-height: 570px;
+            padding: 30px 28px;
+            border-radius: 22px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== NEW CARD COLORS ===== */
+
+        /* CSS - Sky Blue */
+        .css-card {
+            background: linear-gradient(
+                145deg,
+                #0284c7,
+                #38bdf8
+            );
+        }
+
+        /* HTML - Emerald */
+        .html-card {
+            background: linear-gradient(
+                145deg,
+                #047857,
+                #34d399
+            );
+        }
+
+        /* JavaScript - Violet */
+        .js-card {
+            background: linear-gradient(
+                145deg,
+                #7c3aed,
+                #c084fc
+            );
+        }
+
+        /* Web Design - Rose */
+        .design-card {
+            background: linear-gradient(
+                145deg,
+                #e11d48,
+                #fb7185
+            );
+        }
+
+        /* ===== DECORATION ===== */
+
+        .circle1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.10);
+            top: -80px;
+            right: -70px;
+        }
+
+        .circle2 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.10);
+            bottom: -80px;
+            left: -70px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== ICON ===== */
+
+        .icon {
+            width: 100px;
+            height: 100px;
+
+            margin: 0 auto 25px;
+
+            background: white;
+
+            /* NEW ICON COLOR */
+            color: #0284c7;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 42px;
+            font-weight: bold;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .html-card .icon {
+            color: #047857;
+        }
+
+        .js-card .icon {
+            color: #7c3aed;
+        }
+
+        .design-card .icon {
+            color: #e11d48;
+        }
+
+        /* ===== TEXT ===== */
+
+        .card h2 {
+            text-align: center;
+            font-size: 31px;
+            margin-bottom: 15px;
+        }
+
+        .small-line {
+            width: 65px;
+            height: 4px;
+            background: white;
+            border-radius: 10px;
+            margin: 0 auto 25px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 115px;
+        }
+
+        /* ===== LIST ===== */
+
+        .topics {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .topics li {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .topics li::before {
+            content: "✓";
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 22px;
+            height: 22px;
+
+            background: rgba(255,255,255,0.9);
+
+            /* NEW CHECK COLORS */
+            color: #0284c7;
+
+            border-radius: 50%;
+
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .html-card .topics li::before {
+            color: #047857;
+        }
+
+        .js-card .topics li::before {
+            color: #7c3aed;
+        }
+
+        .design-card .topics li::before {
+            color: #e11d48;
+        }
+
+        /* ===== BUTTON ===== */
+
+        .btn {
+            display: block;
+
+            width: 85%;
+
+            margin: 25px auto 0;
+
+            padding: 14px;
+
+            background: white;
+
+            /* NEW BUTTON COLORS */
+            color: #0284c7;
+
+            text-align: center;
+            text-decoration: none;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #f1f5f9;
+        }
+
+        .html-card .btn {
+            color: #047857;
+        }
+
+        .js-card .btn {
+            color: #7c3aed;
+        }
+
+        .design-card .btn {
+            color: #e11d48;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 1100px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 550px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>learning code from my page</h1>
+
+        <div class="line"></div>
+
+        <p>
+            skill: Information Technology
+        </p>
+
+    </div>
+
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+        <!-- CSS -->
+
+        <div class="card css-card">
+
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+
+            <div class="content">
+
+                <div class="icon">
+                    &lt;/&gt;
+                </div>
+
+                <h2>មូលដ្ឋាន CSS</h2>
+
+                <div class="small-line"></div>
+
+                <h3>CSS Properties គឺជាអ្វី?</h3>
+
+                <p>
+                    សិក្សាអំពី CSS Properties
+                    និងរបៀបប្រើប្រាស់ CSS
+                    ដើម្បីកែប្រែរូបរាង
+                    និងប្លង់របស់ Website។
+                </p>
+
+                <ul class="topics">
+                    <li>CSS Basics</li>
+                    <li>CSS Properties</li>
+                    <li>CSS Layout</li>
+                    <li>CSS Project</li>
+                </ul>
+
+                <a href="#" class="btn">
+                    សិក្សាបន្ថែម →
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- HTML -->
+
+        <div class="card html-card">
+
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+
+            <div class="content">
+
+                <div class="icon">
+                    &lt;/&gt;
+                </div>
+
+                <h2>មូលដ្ឋាន HTML</h2>
+
+                <div class="small-line"></div>
+
+                <h3>HTML គឺជាអ្វី?</h3>
+
+                <p>
+                    រៀនពី HTML និងរបៀបបង្កើត
+                    Structure របស់ Website
+                    ដោយប្រើ Tags ផ្សេងៗ។
+                </p>
+
+                <ul class="topics">
+                    <li>HTML Basics</li>
+                    <li>HTML Elements</li>
+                    <li>HTML Forms</li>
+                    <li>HTML Project</li>
+                </ul>
+
+                <a href="#" class="btn">
+                    សិក្សាបន្ថែម →
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- JAVASCRIPT -->
+
+        <div class="card js-card">
+
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+
+            <div class="content">
+
+                <div class="icon">
+                    JS
+                </div>
+
+                <h2>JavaScript</h2>
+
+                <div class="small-line"></div>
+
+                <h3>រៀន JavaScript</h3>
+
+                <p>
+                    ស្វែងយល់ពី JavaScript
+                    ដើម្បីបង្កើត Website
+                    ដែលមានភាព Interactive
+                    និងទាក់ទាញ។
+                </p>
+
+                <ul class="topics">
+                    <li>JS Basics</li>
+                    <li>JS Functions</li>
+                    <li>JS Events</li>
+                    <li>JS Project</li>
+                </ul>
+
+                <a href="#" class="btn">
+                    សិក្សាបន្ថែម →
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- WEB DESIGN -->
+
+        <div class="card design-card">
+
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+
+            <div class="content">
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <h2>Web Design</h2>
+
+                <div class="small-line"></div>
+
+                <h3>រចនា Website</h3>
+
+                <p>
+                    រៀនអំពីការរចនា Website
+                    ឱ្យមានភាពស្អាត ទំនើប
+                    និងងាយស្រួលប្រើប្រាស់។
+                </p>
+
+                <ul class="topics">
+                    <li>UI/UX Design</li>
+                    <li>Color & Typography</li>
+                    <li>Responsive Design</li>
+                    <li>Web Project</li>
+                </ul>
+
+                <a href="#" class="btn">
+                    សិក្សាបន្ថែម →
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+```
